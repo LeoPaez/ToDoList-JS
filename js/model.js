@@ -2,10 +2,11 @@ export default class Model {
     constructor() {
         this.view = null;
         this.todos = JSON.parse(localStorage.getItem("todos"));
-        if(!this.todos || this.todos.length < 1) {
+        if (!this.todos || this.todos.length < 1) {
+            this.todos = []
             this.currentId = 1;
         } else {
-             this.currentId = this.todos[this.todos.length - 1].id + 1
+            this.currentId = this.todos[this.todos.length - 1].id + 1;
         }
 
 
@@ -20,7 +21,7 @@ export default class Model {
     }
 
     getTodos() {
-        return this.todos.map((todo) => ({...todo}))
+        return this.todos.map((todo) => ({...todo}));
     }
 
     findTodo(id) {
